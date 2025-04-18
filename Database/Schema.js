@@ -16,7 +16,7 @@ const adminSchema = new Schema({
   lastName: String,
 });
 const courseSchema = new Schema({
-  title: String,
+  title: { type: String, unique: true },
   description: String,
   price: Number,
   imageUrl: String,
@@ -29,8 +29,8 @@ const purchaseSchema = new Schema({
 
 
 export const userModel = mongoose.model('users',userSchema);
-export const adminModel = mongoose.model('admin',userSchema);
-export const courseModel = mongoose.model('course',userSchema);
-export const purchaseModel = mongoose.model('purchase',userSchema);
+export const adminModel = mongoose.model('admin',adminSchema);
+export const courseModel = mongoose.model('course',courseSchema);
+export const purchaseModel = mongoose.model('purchase',purchaseSchema);
 
 
